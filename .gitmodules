@@ -1,0 +1,3 @@
+[submodule "PingDistance"]
+	path = PingDistance
+	url = https://github.com/underscorea/PingDistance.git
