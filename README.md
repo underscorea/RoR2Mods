@@ -1,5 +1,6 @@
 # RoR2Mods
-i dont know what im doing
+i dont know what im doing  
+this repo is likely to be outdated compared to its submodules so navigate each one for important stuff
 
 # Boilerplate
 this repo has a solution that uses `Directory.Build.targets` to automatically link projects with installed assemblies (i.e. you have to have bepinex installed before you open solution and try to build it  
@@ -8,4 +9,4 @@ right now its at windows only but if i see an interest to get it to work with ot
 
 # Mods
 currently there's only one  
-i dont know if there's going to be more  
+i dont know if there's going to be more
