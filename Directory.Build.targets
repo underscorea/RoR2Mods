@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Condition="Exists('Directory.Build.targets.user')" Project="Directory.Build.targets.user"/>
   <PropertyGroup>
     <!-- common paths -->
     <GamePath Condition="!Exists('$(GamePath)')">C:\Program Files\Steam\steamapps\common\Risk of Rain 2</GamePath>
@@ -373,6 +374,11 @@
     </Reference>
   </ItemGroup>
   <Target Name="BeforeBuild">
-    <Error Condition="!Exists('$(GamePath)')" Text="Failed to find RoR2 install path"></Error>
+    <Error Condition="!Exists('$(GamePath)')" Text="Failed to find RoR2 install path" />
+  </Target>
+  <Target Name="AfterBuild" Condition="Exists('$(GamePath)')">
+    <RemoveDir Directories="$(GamePath)\BepInEx\plugins\$(TargetName)" />
+    <Copy SourceFiles="$(TargetDir)\$(TargetName).dll" DestinationFolder="$(GamePath)\BepInEx\plugins\$(TargetName)\" />
+    <Message Text="Copied $(TargetName).dll to $(GamePath)\BepInEx\plugins\$(TargetName)" />
   </Target>
 </Project>
